@@ -16,11 +16,11 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    // protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    // ];
 
     protected $guarded = ['id'];
 
@@ -50,5 +50,14 @@ class User extends Authenticatable
     public function programs()
     {
         return $this->hasMany(Program::class);
+    }
+
+    public function mentor()
+    {
+        return $this->hasOne(Mentor::class);
+    }
+    public function student()
+    {
+        return $this->hasOne(Student::class);
     }
 }
