@@ -43,3 +43,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(Role::class);
     Route::get('/learning', [LearningController::class, 'index'])->middleware(Role::class);
 });
+
+Route::resource('/dashboard/posts', DashboardController::class)->middleware('auth');
+
+Route::get('/dashboard/posts/{id}', [DashboardController::class, 'show'])->name('dashboard.posts.show');
+Route::put('/dashboard/posts/{id}/edit', [DashboardController::class, 'update'])->name('dashboard.posts.edit');
+Route::delete('/dashboard/posts/{id}', [DashboardController::class, 'destroy']);

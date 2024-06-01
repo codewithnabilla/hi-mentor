@@ -1,12 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
-    <section class="bg-gray-50 dark:bg-gray-900">
+    <section>
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-                <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo">
-                Flowbite
-            </a>
+
             <div
                 class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -64,10 +61,12 @@
                             @enderror
                         </div>
                         <div class="form-group row">
-                            <label for="role" class="col-md-4 col-form-label text-md-right">Role</label>
+                            <label for="role"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Role</label>
 
                             <div class="col-md-6">
-                                <select id="role" class="form-control @error('role') is-invalid @enderror"
+                                <select id="role"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('role') is-invalid @enderror"
                                     name="role" required>
                                     <option value="mentor">Mentor</option>
                                     <option value="student">Student</option>
@@ -95,7 +94,7 @@
                                 password?</a>
                         </div>
                         <button type="submit"
-                            class="w-full text-black bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign
+                            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign
                             in</button>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                             Already have an account yet? <a href="/login"

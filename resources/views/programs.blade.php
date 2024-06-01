@@ -12,6 +12,7 @@
                         <div class="flex-grow">
                             <h2 class="font-bold">{{ $program->title }}</h2>
                             <p>{{ $program->description }}</p>
+                            <p>Rp{{ $program->price }}</p>
                         </div>
                         <div class="mt-auto">
                             <a href="/program/{{ $program->id }}">
