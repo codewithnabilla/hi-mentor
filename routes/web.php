@@ -49,3 +49,6 @@ Route::resource('/dashboard/posts', DashboardController::class)->middleware('aut
 Route::get('/dashboard/posts/{id}', [DashboardController::class, 'show'])->name('dashboard.posts.show');
 Route::put('/dashboard/posts/{id}/edit', [DashboardController::class, 'update'])->name('dashboard.posts.edit');
 Route::delete('/dashboard/posts/{id}', [DashboardController::class, 'destroy']);
+Route::post('/dashboard/posts', [DashboardController::class, 'store']);
+
+Route::post('/buy/{id}', [LearningController::class, 'buyProgram'])->name('buyProgram');

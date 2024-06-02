@@ -23,7 +23,7 @@ class ProgramFactory extends Factory
             'description' => $this->faker->paragraph,
             'body' => collect($this->faker->paragraphs(mt_rand(5, 10)))->map(fn ($p) => "<p>$p</p>")->implode(''),
             'user_id' => mt_rand(1, 4),
-            'price' => $this->faker->numberBetween(2, 100000, 1000000),
+            'price' => number_format($this->faker->numberBetween(200000, 1000000), 0, ',', '.'),
             'category_id' => mt_rand(1, 3)
         ];
     }

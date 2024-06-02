@@ -20,4 +20,9 @@ class Program extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function buyers()
+    {
+        return $this->belongsToMany(User::class, 'bought_programs')->withTimestamps();
+    }
 }

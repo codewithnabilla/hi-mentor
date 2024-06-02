@@ -54,21 +54,24 @@
                     <td class="px-6 py-4">
                         Rp{{ $program->price }},00
                     </td>
-                    <td class="px-6 py-4">
-                        <a href="/dashboard/posts/{{ $program->id }}/edit"
-                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        |
+                    <div class="flex items-center space-x-4">
+                        <td class="px-6 py-4">
+                            <a href="/dashboard/posts/{{ $program->id }}"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+                            <span>|</span>
+                            <a href="/dashboard/posts/{{ $program->id }}/edit"
+                                class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <span>|</span>
+                            <form action="/dashboard/posts/{{ $program->id }}" method="POST" class="inline">
+                                @csrf
+                                @method('delete')
+                                <button type="submit"
+                                    class="font-medium text-red-600 dark:text-red-500 hover:underline"
+                                    onclick="return confirm('Are you sure you want to delete this program?')">Delete</button>
 
-                        <form action="/dashboard/posts/{{ $program->id }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline"
-                                onclick="return confirm('Are you sure you want to delete this program?')">Delete</button>
-                            |
-                        </form>
-                        <a href="/dashboard/posts/{{ $program->id }}"
-                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
-                    </td>
+                            </form>
+                        </td>
+                    </div>
                 </tr>
             @endforeach
         </tbody>

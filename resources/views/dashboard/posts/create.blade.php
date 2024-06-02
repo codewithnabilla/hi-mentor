@@ -96,7 +96,7 @@
     <script>
         function previewImage() {
             const image = document.querySelector(#image);
-            const imgPreview = document.querySelector('img-preview');
+            const imgPreview = document.querySelector('.img-preview');
 
             imgPreview.style.display = 'block';
 

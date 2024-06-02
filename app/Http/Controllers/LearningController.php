@@ -2,16 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Program;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LearningController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('learning.index');
+        $boughtPrograms = Auth::user()->boughtPrograms;
+        return view('learning.index', ['programs' => $boughtPrograms]);
+    }
+
+    public function buyProgram($id, Request $request)
+    {
+        $user = Auth::user();
+        $program = Program::find($id);
+        if (!$user->boughtPrograms->contains($program)) {
+            $user->boughtPrograms()->attach($program);
+        }
+
+        // $boughtPrograms = $request->session()->get('bought_programs', []);
+        // if (!in_array($id, $boughtPrograms)) {
+        //     $boughtPrograms[] = $id;
+        // }
+
+        // $request->session()->put('bought_programs', $boughtPrograms);
+
+        return redirect('/learning');
     }
 
     /**
