@@ -61,19 +61,11 @@
                     </div>
 
                     <div class="mt-6 sm:gap-4 sm:items-center sm:flex sm:mt-8">
-                        <a href="/dashboard/posts/{{ $program->id }}/edit">
+                        <a href="/learning/{{ $program->id }}">
                             <button type="button"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                                Edit</button>
+                                class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
+                                Start Learn</button>
                         </a>
-                        <form action="/dashboard/posts/{{ $program->id }}" method="POST" class="inline">
-                            @csrf
-                            @method('delete')
-                            <button type="submit"
-                                class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800"
-                                onclick="return confirm('Are you sure you want to delete this program?')">Delete</button>
-
-                        </form>
                     </div>
 
                     <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
@@ -86,10 +78,10 @@
                         {{ $program->body }}
                     </p>
                     <div class="pt-6">
-                        <a href="/dashboard">
+                        <a href="/learning">
                             <button type="button"
                                 class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
-                                Back to Dashboard</button>
+                                Back to Learning</button>
                         </a>
                     </div>
                 </div>
@@ -98,23 +90,3 @@
         </div>
     </section>
 @endsection
-
-
-
-
-
-{{-- @extends('dashboard.layouts.main')
-
-@section('container')
-    <h1>{{ $program->title }}</h1>
-    <p>Category: {{ $program->category->name }}</p>
-    <p>Price: Rp{{ $program->price }},00</p>
-    <p>Description: {{ $program->description }}</p>
-    @if ($program->image)
-        <img class="w-full" src="{{ asset('storage/' . $program->image) }}" alt="{{ $program->category->name }}">
-    @else
-        <img class="w-full" src="https://source.unsplash.com/1200x400/?{{ $program->category->name }}"
-            alt="{{ $program->category->name }}">
-    @endif
-    {!! $program->body !!}
-@endsection --}}

@@ -6,6 +6,8 @@ use App\Models\Program;
 use App\Http\Requests\StoreProgramRequest;
 use App\Http\Requests\UpdateProgramRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
+
 
 class ProgramController extends Controller
 {
@@ -14,13 +16,15 @@ class ProgramController extends Controller
      */
     public function index()
     {
-        $programs = Program::all();
+        $programs = Program::orderBy('created_at', 'DESC')->paginate(9);
         return view('programs', ['programs' => $programs]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
+
+
     public function create()
     {
         //

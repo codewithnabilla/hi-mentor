@@ -57,7 +57,8 @@ class LearningController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $program = Program::findOrFail($id);
+        return view('learning.posts.show', compact('program'));
     }
 
     /**

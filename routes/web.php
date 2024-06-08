@@ -18,6 +18,8 @@ Route::get('/programs', [ProgramController::class, 'index']);
 
 Route::get('/program/{id}', [ProgramController::class, 'show']);
 
+
+
 Route::get('/testimoni', function () {
     return view('testimoni');
 });
@@ -42,6 +44,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(Role::class);
     Route::get('/learning', [LearningController::class, 'index'])->middleware(Role::class);
+    Route::get('/learning/{id}', [LearningController::class, 'show'])->name('learning.posts.show');
 });
 
 Route::resource('/dashboard/posts', DashboardController::class)->middleware('auth');
